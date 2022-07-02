@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Websocket</title>
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1 class="text-center pt-4">Productos</h1>
+
+      <section id="productos" class="row">
+        <section class="col-lg-4 py-2">
+          <form id="formProductos">
+            <div class="row pt-4">
+              <div class="col">
+                <div class="mb-3">
+                  <label for="title" class="form-label">Nombre</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="title"
+                    name="title"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="price" class="form-label">Precio</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="price"
+                    name="price"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="thumbnail" class="form-label">URL Imagen</label>
+                  <input
+                    type="url"
+                    class="form-control"
+                    id="thumbnail"
+                    name="thumbnail"
+                    required
+                  />
+                </div>
+                <button type="submit" class="btn btn-primary">Agregar</button>
+              </div>
+            </div>
+          </form>
+        </section>
+        <section
+          id="tableProductos"
+          class="col-lg-8 py-2 text-center container"
+        >
+          <div class="row py-lg-1">
+            <div class="col-lg-6 col-md-8 mx-auto">
+              <h1 class="fw-light">Tabla</h1>
+            </div>
+            <div class="container py-2 bg-light">
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Precio</th>
+                      <th scope="col">Imagen</th>
+                    </tr>
+                  </thead>
+                  <tbody id="bodyTable"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+        <hr />
+      </section>
+
+      <h1 class="text-center">Chat</h1>
+      <section id="chat" class="row">
+        <section class="col-lg-6">
+          <form id="formChat">
+            <div class="row pt-4">
+              <div class="col">
+                <div class="mb-3">
+                  <label for="usuario" class="form-label">Usuario(email)</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="usuario"
+                    name="usuario"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="mensaje" class="form-label">Mensaje</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="mensaje"
+                    name="mensaje"
+                    required
+                  />
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+              </div>
+            </div>
+          </form>
+        </section>
+        <section id="listChat" class="col-lg-6">
+          <div class="row py-lg-1">
+            <div class="col-lg-6 col-md-8 mx-auto">
+              <h1 class="fw-light text-center">Mensajes</h1>
+            </div>
+            <div class="container py-2 bg-light">
+              <ul class="list-group" id="bodyChat"></ul>
+            </div>
+          </div>
+        </section>
+      </section>
+      <hr />
+      <footer>
+        <p>
+          Server Status:
+          <span id="lblOnline" class="text-success">Online</span>
+          <span id="lblOffline" class="text-danger">Offline</span>
+        </p>
+      </footer>
+    </main>
+
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/handlebars-v4.7.7.js"></script>
+    <script src="/js/moment.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/main.js"></script>
+  </body>
+</html>
